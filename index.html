@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cricket Maharaja</title>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4217515898490557');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4217515898490557&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Background light motion */
+    .moving-light {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: moveLight 6s infinite linear;
+      z-index: 0;
+    }
+
+    @keyframes moveLight {
+      0% { transform: translate(-30%, -30%) rotate(0deg); }
+      50% { transform: translate(30%, 30%) rotate(180deg); }
+      100% { transform: translate(-30%, -30%) rotate(360deg); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .logo img {
+      width: 140px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      animation: pulse 2.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px rgba(255,255,255,0.3); }
+      50% { box-shadow: 0 0 25px rgba(255,255,255,0.8); }
+      100% { box-shadow: 0 0 10px rgba(255,255,255,0.3); }
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 20px 0 10px;
+      background: linear-gradient(90deg, #fff, #ccc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+    }
+
+    p.tagline {
+      font-size: 16px;
+      color: #aaa;
+      margin-bottom: 30px;
+      letter-spacing: 0.5px;
+    }
+
+    .highlight-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 25px;
+      width: 90%;
+      max-width: 420px;
+      margin-bottom: 25px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+
+    .highlight-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+      animation: shine 4s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -100%; }
+      50% { left: 100%; }
+      100% { left: 100%; }
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 15px 25px;
+      font-size: 15px;
+      font-weight: 600;
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .stat:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255,255,255,0.3);
+    }
+
+    .cta {
+      background: white;
+      color: black;
+      font-weight: 700;
+      padding: 14px 40px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 18px;
+      transition: 0.3s;
+      box-shadow: 0 0 25px rgba(255,255,255,0.3);
+    }
+
+    .cta:hover {
+      background: #00ffee;
+      color: #000;
+      box-shadow: 0 0 35px rgba(0,255,255,0.8);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 13px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="moving-light"></div>
+
+  <div class="container">
+    <div class="logo">
+      <img src="logo.jpg" alt="Cricket Maharaja Logo">
+    </div>
+
+    <h1>🏏 Cricket Maharaja 🏆</h1>
+    <p class="tagline">Trusted by <strong>45.6K Members</strong> | 96% Prediction Accuracy</p>
+
+    <div class="highlight-box">
+      <h2>🔥 Daily Expert Match Predictions</h2>
+      <p>All leagues covered with accurate analysis & real-time stats by top analysts.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">All Leagues</div>
+      <div class="stat">Live Stats</div>
+      <div class="stat">Expert Tips</div>
+      <div class="stat">Instant Updates</div>
+    </div>
+
+    <a href="https://t.me/+0GTpuNzuX-kxNTVl" class="cta">JOIN TELEGRAM FREE</a>
+
+    <footer>
+      © 2025 Cricket Maharaja | 100% Secure & Free Forever
+    </footer>
+  </div>
+
+</body>
+</html>
