@@ -21,6 +21,7 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=4217515898490557&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
@@ -32,7 +33,7 @@ src="https://www.facebook.com/tr?id=4217515898490557&ev=PageView&noscript=1"
       overflow-x: hidden;
     }
 
-    /* Background light motion */
+    /* Background motion light */
     .moving-light {
       position: fixed;
       top: 0;
@@ -56,14 +57,14 @@ src="https://www.facebook.com/tr?id=4217515898490557&ev=PageView&noscript=1"
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px 100px;
     }
 
     .logo img {
-      width: 140px;
+      width: 120px;
       border-radius: 50%;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
       animation: pulse 2.5s infinite;
@@ -76,20 +77,50 @@ src="https://www.facebook.com/tr?id=4217515898490557&ev=PageView&noscript=1"
     }
 
     h1 {
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 700;
       margin: 20px 0 10px;
       background: linear-gradient(90deg, #fff, #ccc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      letter-spacing: 1px;
     }
 
     p.tagline {
       font-size: 16px;
       color: #aaa;
-      margin-bottom: 30px;
-      letter-spacing: 0.5px;
+      margin-bottom: 25px;
+    }
+
+    /* Join Button near top */
+    .cta {
+      background: white;
+      color: black;
+      font-weight: 700;
+      padding: 14px 40px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 18px;
+      transition: 0.3s;
+      box-shadow: 0 0 25px rgba(255,255,255,0.3);
+      margin-bottom: 20px;
+    }
+
+    .cta:hover {
+      background: #00ffee;
+      color: #000;
+      box-shadow: 0 0 35px rgba(0,255,255,0.8);
+    }
+
+    .scroll-note {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 25px;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
     }
 
     .highlight-box {
@@ -127,7 +158,7 @@ src="https://www.facebook.com/tr?id=4217515898490557&ev=PageView&noscript=1"
       justify-content: center;
       flex-wrap: wrap;
       gap: 15px;
-      margin-bottom: 30px;
+      margin-top: 20px;
     }
 
     .stat {
@@ -146,28 +177,34 @@ src="https://www.facebook.com/tr?id=4217515898490557&ev=PageView&noscript=1"
       box-shadow: 0 0 25px rgba(255,255,255,0.3);
     }
 
-    .cta {
-      background: white;
-      color: black;
-      font-weight: 700;
-      padding: 14px 40px;
-      border-radius: 40px;
-      text-decoration: none;
-      font-size: 18px;
-      transition: 0.3s;
-      box-shadow: 0 0 25px rgba(255,255,255,0.3);
-    }
-
-    .cta:hover {
-      background: #00ffee;
-      color: #000;
-      box-shadow: 0 0 35px rgba(0,255,255,0.8);
-    }
-
     footer {
       margin-top: 40px;
       font-size: 13px;
       color: #777;
+    }
+
+    /* Floating Join Button (visible while scrolling) */
+    .floating-cta {
+      position: fixed;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      color: black;
+      padding: 12px 35px;
+      border-radius: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 16px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+      transition: all 0.3s;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .floating-cta.show {
+      opacity: 1;
+      pointer-events: auto;
     }
   </style>
 </head>
@@ -183,6 +220,9 @@ src="https://www.facebook.com/tr?id=4217515898490557&ev=PageView&noscript=1"
     <h1>🏏 Cricket Maharaja 🏆</h1>
     <p class="tagline">Trusted by <strong>45.6K Members</strong> | 96% Prediction Accuracy</p>
 
+    <a href="https://t.me/+0GTpuNzuX-kxNTVl" class="cta">JOIN TELEGRAM FREE</a>
+    <div class="scroll-note">⬇ Scroll for more info ⬇</div>
+
     <div class="highlight-box">
       <h2>🔥 Daily Expert Match Predictions</h2>
       <p>All leagues covered with accurate analysis & real-time stats by top analysts.</p>
@@ -195,12 +235,63 @@ src="https://www.facebook.com/tr?id=4217515898490557&ev=PageView&noscript=1"
       <div class="stat">Instant Updates</div>
     </div>
 
-    <a href="https://t.me/+0GTpuNzuX-kxNTVl" class="cta">JOIN TELEGRAM FREE</a>
-
     <footer>
       © 2025 Cricket Maharaja | 100% Secure & Free Forever
     </footer>
   </div>
+
+    <!-- Floating Join Button (fixed, clickable) -->
+  <a href="https://t.me/+0GTpuNzuX-kxNTVl" class="floating-cta" id="floatBtn" target="_blank" rel="noopener">JOIN NOW</a>
+
+  <script>
+    // Safe: wait DOM loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      const floatBtn = document.getElementById('floatBtn');
+      const topBtn = document.querySelector('.cta');
+      const telegramLink = "https://t.me/+0GTpuNzuX-kxNTVl";
+
+      // Ensure CSS allows clicks (increase z-index)
+      if (floatBtn) {
+        floatBtn.style.zIndex = 9999;
+      }
+
+      // Show/hide floating button on scroll
+      window.addEventListener('scroll', () => {
+        if (!floatBtn) return;
+        if (window.scrollY > 100) {
+          floatBtn.classList.add('show');
+        } else {
+          floatBtn.classList.remove('show');
+        }
+      });
+
+      // Universal click handler that works on all browsers
+      function openTelegram(e, eventName) {
+        if (e) e.preventDefault();
+        // Try to open in new tab / Telegram app
+        try {
+          window.open(telegramLink, '_blank');
+        } catch (err) {
+          // fallback
+          window.location.href = telegramLink;
+        }
+        // Pixel tracking if available
+        if (typeof fbq !== 'undefined') {
+          try { fbq('trackCustom', eventName); } catch(e) {}
+        }
+      }
+
+      // Attach handlers (top and floating). Use capture to ensure it fires early.
+      if (floatBtn) {
+        floatBtn.addEventListener('click', (e) => openTelegram(e, 'FloatingJoinClick'), {capture:true});
+      }
+      if (topBtn) {
+        topBtn.setAttribute('target','_blank');
+        topBtn.setAttribute('rel','noopener');
+        topBtn.addEventListener('click', (e) => openTelegram(e, 'TopJoinClick'), {capture:true});
+      }
+    });
+  </script>
 
 </body>
 </html>
